@@ -35,9 +35,13 @@ line_numbers = []
 file.readlines.each do |line|
   found_numbers_on_line = {}
   number_map.each_key do |key|
+    line.index
     key_index = line.index key.to_s
     next if key_index.nil?
     found_numbers_on_line[key_index] = number_map[key]
+    key_rindex = line.rindex key.to_s
+    next if key_rindex.nil?
+    found_numbers_on_line[key_rindex] = number_map[key]
   end
   puts line
   puts "found numbers: '#{found_numbers_on_line}'"
